@@ -31,24 +31,24 @@
 =============================================*/
 
 // Copia por referencia
-// let obj1 = {
-//     name: "Nico",
-//     edad: 25
-// }
-// console.log(obj1);
+let obj1 = {
+    name: "Nico",
+    edad: 25
+}
+console.log(obj1);
 
-// // let obj2 = obj1
-// const obj2 = { ...obj1 }
-// console.log(obj2);
+// let obj2 = obj1
+const obj2 = { ...obj1 }
+console.log(obj2);
 
-// obj2.name = 'Lucas'
-// obj2.pais = "Arg"
+obj2.name = 'Lucas'
+obj2.pais = "Arg"
 
-// console.log('Objeto 2');
-// console.log(obj2)
+console.log('Objeto 2');
+console.log(obj2)
 
-// console.log('Objeto 1');
-// console.log(obj1)
+console.log('Objeto 1');
+console.log(obj1)
 
 
 

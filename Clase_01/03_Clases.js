@@ -2,6 +2,7 @@ class Auto {
     constructor(color, marca) {
         this.color = color
         this.marca = marca
+        // this.productos = []
     }
 
 
@@ -13,6 +14,13 @@ class Auto {
     acelerar() {
         return `Se acelera el auto de color: ${this.color}`
     }
+
+    // addProducto(producto) {
+    //     this.productos.push(producto)
+    //     // Logica de agregar a un array
+    // }
+
+
 }
 
 // Creamos instancias de la clase Auto
