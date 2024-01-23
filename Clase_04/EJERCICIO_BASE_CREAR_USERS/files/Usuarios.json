@@ -1,0 +1,32 @@
+[
+  {
+    "nombre": "Usuario1",
+    "apellido": "Apellido1",
+    "edad": 20,
+    "curso": "React JS"
+  },
+  {
+    "nombre": "Usuario1",
+    "apellido": "Apellido1",
+    "edad": 20,
+    "curso": "React JS"
+  },
+  {
+    "nombre": "Usuario1",
+    "apellido": "Apellido1",
+    "edad": 20,
+    "curso": "React JS"
+  },
+  {
+    "nombre": "Usuario4",
+    "apellido": "Apellido4",
+    "edad": 20,
+    "curso": "React JS"
+  },
+  {
+    "nombre": "Usuario_05",
+    "apellido": "Apellido_05",
+    "edad": 20,
+    "curso": "Backend"
+  }
+]
