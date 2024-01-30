@@ -32,7 +32,7 @@ persistirUsuario();
 
 
 
-// Ejeplo de implemetacion de crypto
+// Ejemplo de implemetacion de crypto
 // let textoCifrado = userManager.encrypt("Hola Mundo")
 // console.log("Cifrando texto: Hola mundo!");
 // console.log("Resultado: ");
