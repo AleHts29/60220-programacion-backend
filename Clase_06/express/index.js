@@ -10,7 +10,7 @@ app.get('/saludo', (req, res) => {
 
 
 // Usando req.params
-app.get('/user/:nombre/:apellido', (req, res) => {
+app.get('/getUser/:nombre/:apellido', (req, res) => {
     console.log(req.params);
 
     res.send(`Hola, tu nombre completo es: ${req.params.nombre} ${req.params.apellido} `)
