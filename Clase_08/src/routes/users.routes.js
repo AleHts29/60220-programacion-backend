@@ -1,27 +1,17 @@
-import express from 'express';
+import { Router } from 'express';
 
-const app = express();
-
-// Esto es un Mideldware
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-const PORT = 9090;
-
-// Ruta Telemetria
-app.get('/ping', (req, res) => {
-    res.send({ status: "ok" })
-})
+const router = Router();
 
 // Simulamos una DB
 let users = []
 
 // Listar todos los usuarios
-app.get('/api/users', (req, res) => {
+router.get('/', (req, res) => {
     res.send(users);
 })
 
 // Crear o dar de alta un usurio
-app.post('/api/user', (req, res) => {
+router.post('/', (req, res) => {
     console.log(req.body);
     let user = req.body
 
@@ -38,7 +28,7 @@ app.post('/api/user', (req, res) => {
 })
 
 // ACTUALIZAR
-app.put('/api/users/:userId', (req, res) => {
+router.put('/:userId', (req, res) => {
     // capturo el id
     let userId = parseInt(req.params.userId)
 
@@ -59,7 +49,7 @@ app.put('/api/users/:userId', (req, res) => {
 
 
 // DELETE
-app.delete('/api/users/:userId', (req, res) => {
+router.delete('/:userId', (req, res) => {
     let userId = parseInt(req.params.userId);
 
     // tomamos el tamanio del array antes de elimanr el registro
@@ -83,30 +73,4 @@ app.delete('/api/users/:userId', (req, res) => {
 
 })
 
-app.listen(PORT, () => {
-    console.log(`Server run on port ${PORT}`);
-})
-
-
-
-
-// EJEMPLO de ruta_base para hacer ejercicio clase_07 - Servidor con GET, POST, PUT, DELETE
-/*
-
-let frase = "Frase inicial";
-
-app.put('/api/palabras/:pos', (request, response) => {
-    const pos = request.params.pos;
-    const palabra = request.body.palabra;
-    if (isNaN(pos)) return response.status(400).send({ status: "error", error: "Pos debe ser un número" });
-    const parsedPos = parseInt(pos);
-    const palabras = frase.split(' '); // .split nos retorna un array --> [ 'Frase', 'inicial' ]
-    console.log(palabras);
-    if (parsedPos <= 0 || parsedPos > palabras.length) return response.status(400).send({ status: "error", error: "Posición fuera del rango de la frase" })
-    const anterior = palabras[parsedPos - 1];
-    palabras[parsedPos - 1] = palabra;
-    frase = palabras.join(' '); // .join me destruye el array y crea una frase con las dos palabras
-    console.log(frase);
-    response.send({ actualizada: palabra, anterior })
-})
-*/
+export default router;
