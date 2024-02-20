@@ -5,7 +5,7 @@ import { Server } from 'socket.io'
 import viewRouter from './routes/views.router.js'
 
 const app = express();
-const PORT = 9090;
+const PORT = process.env.PORT || 8080;
 
 
 //Preparar la configuracion del servidor para recibir objetos JSON.
@@ -35,30 +35,37 @@ const httpServer = app.listen(PORT, () => {
 const socketServer = new Server(httpServer);
 
 
-const logs = [];
+const messages = [];
 socketServer.on('connection', socket => {
-    // console.log(socket);
-    console.log("Nuevo cliente conectado");
-
-    // Escuchamos al cliente
-    // socket.on('msgKEY', data => {
-    //     console.log(data);
-    // })
-
-    // socket.emit('msg_02', "Mensaje enviado desde el BACKEND!!")
-
-    // socket.broadcast.emit('msg_03', "Este evento es para todos los sockets, menos el socket desde que se emitió el mensaje!")
-
-    // socketServer.emit('msg_04', "Mensaje enviado desde el BACKEND!! para todos")
+    // Esto lo ve cualquier user que se conecte
+    socketServer.emit('messageLogs', messages);
 
 
-    // Ejertcico 02
-    //Message2 se utiliza para la parte de almacenar y devolver los logs completos.
-    socketServer.emit('log', { logs });
-    socket.on("message2", data => {
-        logs.push({ socketid: socket.id, message: data })
-        socketServer.emit('log', { logs });
+
+    // aqui vamos a recibir { user: user, message: catBox.value }
+    socket.on("message", data => {
+        messages.push(data)
+
+
+        // enviamos un array de objetos ---> [{ user: "Juan", message: "Hola" }, { user: "Elias", message: "Como estas?" }]
+        socketServer.emit('messageLogs', messages);
     });
+
+
+    // hacemos un broadcast del nuevo usuario que se conecta al chat
+    socket.on('userConnected', data => {
+        console.log(data);
+        socket.broadcast.emit('userConnected', data.user)
+    })
+
+
+    // Cuando desees cerrar la conexión con este cliente en particular:
+    socket.on('closeChat', data => {
+        if (data.close === "close")
+            socket.disconnect();
+    })
+
+
 })
 
 
