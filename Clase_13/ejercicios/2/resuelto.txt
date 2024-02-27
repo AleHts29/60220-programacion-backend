@@ -1,0 +1,56 @@
+λ mongo
+
+> show dbs
+
+> use empresa
+
+switched to db empresa
+
+> db
+
+empresa
+
+> db.clientes.insertMany([
+    {nombre: 'Pablo', edad: 25},
+    {nombre: 'Juan', edad: 22},
+    {nombre: 'Lucia', edad: 25},
+    {nombre: 'Juan', edad: 29},
+    { nombre : 'Fede', edad : 35 }
+])
+
+#FILTROS
+> db.clientes.find().sort({edad: -1})
+
+> db.clientes.find().sort({edad: 1}).limit(1)
+
+> db.clientes.find().sort({edad: 1}).skip(1).limit(1)
+
+> db.clientes.find({nombre: 'Juan'})
+
+> db.clientes.find({nombre: 'Juan', edad: 29})
+
+> db.clientes.find({$or:[{nombre: 'Juan'},{nombre: 'Lucia'}]})
+
+> db.clientes.find({edad:{$gt:25}})
+
+> db.clientes.find({edad:{$lte:25}})
+
+> db.clientes.find({edad:{$ne:25}})
+
+> db.clientes.find({edad:{$gte:26,$lte:35}})
+
+
+#UPDATE
+> db.clientes.updateOne({nombre:'Fede'},{$set: {edad:36}})
+
+> db.clientes.find({edad:{$gte:26,$lte:35}})
+
+> db.clientes.updateMany({edad:25},{$set: {edad:26}})
+
+> db.clientes.find({edad:{$gte:26,$lte:35}})
+
+
+#DELETE
+> db.clientes.deleteMany({nombre:'Juan'})
+
+> db.clientes.find()

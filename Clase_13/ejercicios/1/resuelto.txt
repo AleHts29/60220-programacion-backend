@@ -1,0 +1,96 @@
+λ mongo
+
+> use empresa
+
+switched to db empresa
+
+> db.createCollection('clientes')
+
+{ "ok" : 1 }
+
+> db.clientes.insert({nombre: 'Juan', edad: 23})
+
+WriteResult({ "nInserted" : 1 })
+
+> db.clientes.insertMany([
+    {nombre: 'Cecilia', edad: 27, sexo:'F'},
+    {nombre: 'Pedro', edad: 29, sexo:'M'},
+    {nombre: 'Ana', edad: 24, sexo:'F'}
+])
+
+{
+    "acknowledged" : true,
+    "insertedIds" : [
+        ObjectId("60a5c1f16e0335ba414ef1bb"),
+        ObjectId("60a5c1f16e0335ba414ef1bc"),
+        ObjectId("60a5c1f16e0335ba414ef1bd")
+    ]
+}
+
+
+> db.articulos.insertMany([
+    {nombre: 'prod1', precio: 12.34, stock: 25},
+    {nombre: 'prod2', precio: 34.56, stock: 27},
+    {nombre: 'prod3', precio: 89.12, stock: 43},
+    {nombre: 'prod4', precio: 43.65, stock: 76}
+])
+
+{
+    "acknowledged" : true,
+    "insertedIds" : [
+        ObjectId("60a5c2036e0335ba414ef1be"),
+        ObjectId("60a5c2036e0335ba414ef1bf"),
+        ObjectId("60a5c2036e0335ba414ef1c0"),
+        ObjectId("60a5c2036e0335ba414ef1c1")
+    ]
+}
+
+
+> show collections
+
+articulos
+clientes
+
+> db.clientes.find()
+
+{ "_id" : ObjectId("60a5c1e46e0335ba414ef1ba"), "nombre" : "Juan", "edad" : 23 }
+{ "_id" : ObjectId("60a5c1f16e0335ba414ef1bb"), "nombre" : "Cecilia", "edad" : 27 }
+{ "_id" : ObjectId("60a5c1f16e0335ba414ef1bc"), "nombre" : "Pedro", "edad" : 29 }
+{ "_id" : ObjectId("60a5c1f16e0335ba414ef1bd"), "nombre" : "Ana", "edad" : 24 }
+
+> db.articulos.find()
+
+{ "_id" : ObjectId("60a5c2036e0335ba414ef1be"), "nombre" : "prod1", "precio" : 12.34, "stock" : 25 }
+{ "_id" : ObjectId("60a5c2036e0335ba414ef1bf"), "nombre" : "prod2", "precio" : 34.56, "stock" : 27 }
+{ "_id" : ObjectId("60a5c2036e0335ba414ef1c0"), "nombre" : "prod3", "precio" : 89.12, "stock" : 43 }
+{ "_id" : ObjectId("60a5c2036e0335ba414ef1c1"), "nombre" : "prod4", "precio" : 43.65, "stock" : 76 }
+
+> new Date(ObjectId("603d77e5c7f5f938c247b361").getTimestamp()).toLocaleString()
+
+Monday, March 01, 2021 20:25:25
+
+> db.articulos.find().count()
+4
+
+> db.articulos.find().countDocuments()
+
+db.clientes.find().count()
+3
+db.clientes.find({sexo:'M'}).count()
+1
+db.clientes.find({sexo:'F'}).count()
+2
+
+
+#Busqueda por ID 
+coder51135> db.productos.find({'_id':ObjectId('64237fcac2912a694906092c')})
+[
+  {
+    _id: ObjectId("64237fcac2912a694906092c"),
+    name: 'Cafe',
+    precio: 720,
+    stock: 30
+  }
+]
+coder51135> 
+
