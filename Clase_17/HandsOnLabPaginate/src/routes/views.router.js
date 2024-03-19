@@ -8,8 +8,9 @@ router.get('/', (req, res) => {
 })
 router.get('/students', async (req, res) => {
     let page = parseInt(req.query.page);
+    let limit = parseInt(req.query.limit);
     if (!page) page = 1
-    let result = await studentsModel.paginate({}, { page, limit: 5, lean: true })
+    let result = await studentsModel.paginate({}, { page, limit: limit, lean: true })
 
     result.prevLink = result.hasPrevPage ? `http://localhost:9090/students?page=${result.prevPage}` : '';
     result.nextLink = result.hasNextPage ? `http://localhost:9090/students?page=${result.nextPage}` : '';

@@ -29,10 +29,10 @@ const connectMongoDB = async () => {
 
 
         // Usando Paginate
-        // let student = await studentsModel.paginate({ gender: "Female" }, { limit: 5, page: 1 })
+        let student = await studentsModel.paginate({ gender: "Female" }, { limit: 5, page: 1 })
 
 
-        // console.log(student);
+        console.log(student);
 
     } catch (error) {
         console.error("No se pudo conectar a la BD usando Moongose: " + error);
