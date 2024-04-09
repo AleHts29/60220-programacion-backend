@@ -14,7 +14,7 @@ export default class UsersExtendRouter extends CustomRouter {
             res.sendSuccess("Hola Coders")
         })
 
-        this.get("/currentUser", ["USER", "USER_PREMIUM"], (req, res) => {
+        this.get("/currentUser", ["USER", "USER_PREMIUM", "ADMIN"], (req, res) => {
             res.sendSuccess(req.user);
         });
 
@@ -49,17 +49,19 @@ export default class UsersExtendRouter extends CustomRouter {
                     age: user.age,
                     role: user.role
                 };
-                const access_token = generateJWToken(tokenUser);
+                const access_token = generateJWToken(tokenUser); // Genera JWT Token que contiene la info del user
                 console.log(access_token);
                 res.send({ message: "Login successful!", access_token: access_token, id: user._id });
             } catch (error) {
                 console.error(error);
-                return res.status(500).send({ status: "error", error: "Error interno de la applicacion." });
+                // return res.status(500).send({ status: "error", error: "Error interno de la applicacion." });
+
+                return res.sendInternalServerError(error)
             }
         });
 
         this.post("/register", ["PUBLIC"], async (req, res) => {
-            const { first_name, last_name, email, age, password } = req.body;
+            const { first_name, last_name, email, age, password, role } = req.body;
             console.log("Registrando usuario:");
             console.log(req.body);
 
@@ -72,7 +74,8 @@ export default class UsersExtendRouter extends CustomRouter {
                 last_name,
                 email,
                 age,
-                password: createHash(password)
+                password: createHash(password),
+                role,
             };
             const result = await userService.save(user);
             res.status(201).send({ status: "success", message: "Usuario creado con extito con ID: " + result.id });

@@ -50,7 +50,8 @@ export default class CustomRouter {
         console.log(policies);
 
         //Validar si tiene acceso publico:
-        if (policies[0] === "PUBLIC") return next(); //Puede entrar cualquiera 
+        // if (policies[0] === "PUBLIC") return next(); //Puede entrar cualquiera 
+        if (policies.includes("PUBLIC")) return next();
 
 
         //El JWT token se guarda en los headers de autorización.
