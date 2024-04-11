@@ -1,0 +1,20 @@
+{
+  "name": "clase25-module2-main-global-child-server-process",
+  "version": "1.0.0",
+  "description": "clase25 Modulo2 - Environment Variables, Main, Global and child server processes.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "dependencies": {
+    "commander": "^10.0.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7"
+  }
+}
