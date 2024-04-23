@@ -1,0 +1,34 @@
+{
+  "name": "practica-integradora2-modulo2-mongodb-passport-sesion-jwt",
+  "version": "1.0.0",
+  "description": "Practica integradora para unir todas lo desarrollado en el curso hasta ahora.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "keywords": [
+    "express-custom",
+    "handlebars",
+    "nodejs",
+    "mongodb",
+    "passport",
+    "session",
+    "jwt"
+  ],
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1"
+  }
+}

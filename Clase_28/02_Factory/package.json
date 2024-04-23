@@ -1,0 +1,37 @@
+{
+  "name": "repaso_c28-modelo_de_capas--patrones",
+  "version": "1.0.0",
+  "description": "repaso de modelo de capas y patrones de disenio",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "keywords": [
+    "express-custom",
+    "handlebars",
+    "nodejs",
+    "mongodb",
+    "passport",
+    "session",
+    "jwt"
+  ],
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "commander": "^10.0.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1"
+  }
+}

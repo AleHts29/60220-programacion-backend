@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test CORS</title>
+    
+</head>
+    <body>
+
+        <div id="content">
+            <!-- Aqui se renderiza el contenido -->
+        </div>
+
+        <button onclick="testRequest()">Test CORS</button>
+        
+        <!-- Include Handlebars from a CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script>
+            // compile the template
+            var template = Handlebars.compile("Handlebars <b>{{doesWhat}}</b>");
+            // execute the compiled template and print the output to the console
+            var compiledData = template({ doesWhat: "rocks!" });
+            console.log(compiledData);
+            document.getElementById("content").innerHTML = compiledData;
+        </script>
+        <script src="index.js"></script>
+    </body>
+</html>
