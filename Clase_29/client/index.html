@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Consulta de Usuarios CRUD Capas Arquitectura</title>
+</head>
+    <body>
+        <button onclick="testRequest()">Render Fetch Request</button>
+
+        <div id="content">
+            <!-- Aqui se renderiza el template de .hbs -->
+        </div>
+
+        <!-- Include Handlebars from a CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script id="usersTemplate" type="text/x-handlebars-template">
+            <div>
+                <h1>Usuarios en el Sistema (sin datos sensibles)</h1>
+                <ul>
+                    {{#each payload}}
+                        <li>
+                            <p>{{name}}</p>
+                            <p>{{email}}</p>
+                            <p>{{role}}</p>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </script>
+        <script src="index.js"></script>
+    </body>
+</html>
