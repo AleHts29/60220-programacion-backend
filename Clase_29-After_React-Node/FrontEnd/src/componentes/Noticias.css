@@ -1,0 +1,11 @@
+.Noticias {
+}
+
+.Noticias .jumbotron {
+    background-color: #333;
+    color: white;
+}
+
+.Noticias hr {
+    background-color: white;
+}
