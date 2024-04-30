@@ -1,0 +1,27 @@
+{
+  "name": "clase30-mailing-and-messaging-sms",
+  "version": "1.0.0",
+  "description": "clase30 Modulo2 - Mailing and Messaging SMS",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "keywords": [
+    "express",
+    "process",
+    "environment"
+  ],
+  "dependencies": {
+    "commander": "^10.0.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.2",
+    "nodemailer": "^6.9.1",
+    "twilio": "^4.10.0"
+  }
+}
