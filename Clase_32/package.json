@@ -1,0 +1,26 @@
+{
+  "name": "clase32-server-optimizations-live",
+  "version": "1.0.0",
+  "description": "clase32 Modulo3 - Server Optimizations and Live configurations",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "keywords": [
+    "express",
+    "mock",
+    "TDD",
+    "testing"
+  ],
+  "dependencies": {
+    "commander": "^10.0.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-compression": "^1.0.2"
+  }
+}
