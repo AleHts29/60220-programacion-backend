@@ -1,0 +1,41 @@
+config:
+  plugin:
+    metrics-by-endopoint: {}
+  target: "http://localhost:9090"
+  phases: 
+    - duration: 20
+      arrivalRate: 10
+scenarios: 
+  - name: "Sessions flow (register + login)"
+    flow: 
+      - log: "Creamos las variables para el usuario de prueba."
+      - get:
+          url: "/api/user/test"
+          capture: #capture significa que puedo tomar los campos de la respuesta y guardarlos para después.
+            - json: "$.first_name"
+              as: "first_name"
+            - json: "$.last_name"
+              as: "last_name"
+            - json: "$.email"
+              as: "email"
+            - json: "$.age"
+              as: "age"
+            - json: "$.password"
+              as: "password"
+      - log: "Registrando al usuario:"
+      - post: 
+          url: "/api/session/register"
+          json: #Json a modo de request body para esta petición.
+            first_name: "{{first_name}}" #Esto lo re-usamos de lo que hicimos arriba.
+            last_name: "{{last_name}}"
+            email: "{{email}}"
+            age: "{{age}}"
+            password: "{{password}}"
+      - think: 2 #Simular que el usuario espera 2 segundos para hacer login.
+      - log: "Login User"
+      - post:
+          url: "/api/session/login"
+          json: #Json a modo de request body para esta petición.
+            email: "{{email}}" 
+            password: "{{password}}"
+
