@@ -1,0 +1,34 @@
+{
+  "name": "clase35-clusters-scalability-docker",
+  "version": "1.0.0",
+  "description": "Clase 35: Clusters, Scalability with Containers using Docker",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "keywords": [
+    "express",
+    "clusters",
+    "environment",
+    "docker",
+    "loggers",
+    "performance"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "artillery-plugin-metrics-by-endpoint": "^1.0.2",
+    "commander": "^10.0.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "artillery": "^2.0.0-32"
+  }
+}
