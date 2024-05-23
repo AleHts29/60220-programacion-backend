@@ -1,0 +1,23 @@
+version: "3"
+services:
+  clase36-users-creator-kubernetes:
+    image: clase36-users-creator
+    environment:  
+      PORT: 9090
+      MONGO_DB_URL: mongodb://nodejs-kubernetes-mongodb:27017/nodejs-kubernetes
+    ports:
+      - 9090:9090
+    depends_on:
+      - nodejs-kubernetes-mongodb
+
+  nodejs-kubernetes-mongodb:
+    image: mongo:4.2
+    environment:
+      MONGO_DATA_DIR: /data/db
+      MONGO_LOG_DIR: /dev/log
+    volumes:
+      - nodejs-kubernetes-mongodb-volume:/data/db
+    ports:
+      - 23017:27017
+volumes:
+  nodejs-kubernetes-mongodb-volume:

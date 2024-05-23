@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: clase36-users-creator-service
+spec:
+  selector:
+    app: clase36-users-creator
+  ports:
+    - port: 8080
+      targetPort: 9090
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clase36-users-creator-deploy
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: clase36-users-creator
+  template:
+    metadata:
+      labels:
+        app: clase36-users-creator
+    spec:
+      containers:
+      - name: clase36-users-creator
+        image: alehts29/clase36-users-creator:1.0.1-test
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 9090
+        env:
+          #TODO: Create a kubernetes manifiest for MongoDB to deploy properly 
+          - name: MONGO_URL
+            value: mongodb://172.17.0.2:27017/clase36-containers-docker-kubernetes?retryWrites=true&w=majority
+        imagePullPolicy: Always

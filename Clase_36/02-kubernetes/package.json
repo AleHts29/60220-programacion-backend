@@ -1,0 +1,33 @@
+{
+  "name": "clase36-containers-orchestration-kubernetes",
+  "version": "1.0.0",
+  "description": "Clase 36: Containers orchestration using Docker, Kubernetes and Minikube",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "v16.20.0"
+  },
+  "keywords": [
+    "express",
+    "docker",
+    "environment",
+    "bcrypt",
+    "kubernetes",
+    "minikube"
+  ],
+  "author": "Juan Rodrigo Torres",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "bcrypt": "*",
+    "commander": "^10.0.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0",
+    "winston": "^3.8.2"
+  }
+}
