@@ -1,0 +1,15 @@
+paths:
+  /api/usuario:
+    get:
+      summary: Gets every usuario available
+      tags:
+        - Usuarios
+      responses:
+        "200":
+          description: Every usuario available.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Usuario'

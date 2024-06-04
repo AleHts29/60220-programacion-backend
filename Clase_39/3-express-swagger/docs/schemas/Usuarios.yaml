@@ -1,0 +1,26 @@
+# Product
+components:
+  schemas:
+    Usuario:
+      type: object
+      required:
+        - id
+        - nombre
+        - password
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the book.
+        nombre:
+          type: string
+          description: The name of the usuario.
+        apellido:
+          type: string
+          description: The apellido of the usuario.
+        password:
+          type: string
+          description: The password of the usuario.
+      example:
+         id: 4ughd73658fnsk85dh58sk
+         nombre: Jean
+         apellido: Laguna

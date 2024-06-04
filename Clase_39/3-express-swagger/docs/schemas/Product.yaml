@@ -1,0 +1,23 @@
+# Product
+components:
+  schemas:
+    Product:
+      type: object
+      required:
+        - id
+        - nombre
+        - precio
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the book.
+        nombre:
+          type: string
+          description: The name of the product.
+        precio:
+          type: number
+          description: The price of the product.
+      example:
+         id: 4ughd73658fnsk85dh58sk
+         nombre: desktop computer
+         precio: 123.78

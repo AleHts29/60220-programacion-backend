@@ -1,0 +1,18 @@
+# NewProduct
+components:
+  requestBodies:
+    NewProduct:
+      type: object
+      required:
+        - nombre
+        - precio
+      properties:
+        nombre:
+          type: string
+          description: The title of the product.
+        precio:
+          type: number
+          description: The price of the product.
+      example:
+         nombre: desktop computer
+         precio: 123.78
