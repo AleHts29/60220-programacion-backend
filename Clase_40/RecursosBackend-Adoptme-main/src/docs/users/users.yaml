@@ -1,0 +1,45 @@
+paths:
+  /api/users/:
+    get:
+      summary: Obtiene todos los usuarios disponibles en la aplicación.
+      tags: 
+        - Users
+      responses:
+        "200":
+          description: La operacion fue exitosa! Se retorna un arreglego con los usuarios.
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  $ref: '#components/schemas/User'
+        "400": 
+          description: Se envió un dato no esperado.
+        "500":
+          description: Error inesperado en el servidor, no se pudo manejar el proceso.
+components:
+  schemas:
+    User: 
+      type: object
+      properties:
+        _id: 
+          type: ObjectId
+          description: Id autogenerado de MongoDB.
+        first_name: 
+          type: String
+          description: Nombre del usuario
+        last_name:
+          type: String
+          description: Apellido del usuario
+        email:
+          type: String
+          description: Email del usuario
+        password:
+          type: String
+          description: Contraseña del usuario
+      example: 
+        _id: ObjectId("647fa8c9e46dbc5a20320181")
+        first_name: Usuario de prueba 1
+        last_name: Apellido de prueba 1
+        email: correodeprueba1@gmail.com
+        password: 123456
