@@ -24,15 +24,15 @@ const app = express();
 
 //Preparar la configuracion del servidor para recibir objetos JSON.
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 /**
  * Template engine
  */
-app.engine('handlebars',handlebars.engine());
-app.set('views',__dirname+'/views');
-app.set('view engine','handlebars');
-app.use(express.static(__dirname+'/public'))
+app.engine('handlebars', handlebars.engine());
+app.set('views', __dirname + '/views');
+app.set('view engine', 'handlebars');
+app.use(express.static(__dirname + '/public'))
 
 //(Solo si usar Cookies): inicializar el cookie parser.
 app.use(cookieParser("CoderS3cr3tC0d3"));
@@ -41,7 +41,7 @@ initializePassport();
 app.use(passport.initialize());
 
 //Declaración de Routers:
-app.use('/',viewsRouter);
+app.use('/', viewsRouter);
 app.use("/api/students", studentRouter);
 app.use("/api/courses", coursesRouter);
 app.use("/users", usersViewRouter);
@@ -63,4 +63,6 @@ const mongoInstance = async () => {
         process.exit();
     }
 };
+
+
 mongoInstance();
