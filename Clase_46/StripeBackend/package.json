@@ -1,0 +1,22 @@
+{
+  "name": "clase45-online-payments-stripe",
+  "version": "1.0.0",
+  "description": "clase45 Modulo3 - Pasarela de Pagos con Stripe",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "commander": "^10.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "stripe": "^12.11.0"
+  }
+}
